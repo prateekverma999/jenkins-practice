@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                echo "Build process started..."
                 scripts {
                     ./build.sh
                 }
