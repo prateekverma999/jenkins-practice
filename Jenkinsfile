@@ -10,7 +10,7 @@ pipeline {
             steps {
                 echo "Build process started..."
                 scripts {
-                    ./build.sh
+                    sh ./build.sh
                 }
             }
         }
