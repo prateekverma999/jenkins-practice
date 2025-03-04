@@ -13,7 +13,7 @@ pipeline {
                     sh 'chmod +x build.sh'
                     sh './build.sh'
                     echo "====== New laptop config ======" >> build/$FILE
-                    echo "motherbord" >> build/$FILE
+                    echo "motherbord" >> build_dir/$FILE
                 }
             }
         }
