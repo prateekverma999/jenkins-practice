@@ -9,8 +9,9 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                any
-                reuseNode True
+                node {
+                    reuseNode True
+                }
             }
             steps {
                 cleanWs()
@@ -22,8 +23,8 @@ pipeline {
                     sh './build.sh'
                     sh 'mkdir -p ./build_dir'
                 '''
-                echo "====== New laptop config ======" >> $FOLDER/$FILE
-                echo "motherbord" >> $FOLDER/$FILE
+                echo "====== New laptop config ======" >> "${FOLDER}/${FILE}"
+                echo "motherbord" >> "${FOLDER}/${FILE}"
             }
         }
     }
