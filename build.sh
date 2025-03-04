@@ -1,5 +1,6 @@
 #!/bin/bash
 
 echo "Starting Build process"
-echo "folder = ${FOLDER}"
-echo "file = ${FILE}"
+mkdir -p ${FOLDER}
+echo "====== New laptop config ======" >> ${FOLDER}/${FILE}
+echo "motherboard" >> ${FOLDER}/${FILE}
