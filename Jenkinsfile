@@ -9,16 +9,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                cleanWs()
                 echo "Build process started..."
                 script {
                     sh 'chmod +x build.sh'
-                    sh './build.sh'
-                    sh 'mkdir -p ./build_dir'
                 }
                 sh '''
-                    echo "====== New laptop config ======" >> "${FOLDER}/${FILE}"
-                    echo "motherbord" >> "${FOLDER}/${FILE}"
+                    sh './build.sh'
+                    sh 'mkdir -p ./build_dir'
                 '''
+                echo "====== New laptop config ======" >> $FOLDER/$FILE
+                echo "motherbord" >> $FOLDER/$FILE
             }
         }
     }
