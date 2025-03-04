@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "Starting Build process"
-mkdir -p build
+sudo mkdir -p build
