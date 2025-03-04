@@ -21,12 +21,12 @@ pipeline {
     }
     post {
         success {
-            archiveArtifacts '${FOLDER}/**'
-            cleanWs(patterns: [
-                    [pattern: '${FOLDER}/**', type: 'EXCLUDE'],
-                    [pattern: '.git', type: 'INCLUDE']
-                ]
-            )
+            archiveArtifacts "${FOLDER}/**"
+            script {
+                sh '''
+                    find . -mindepth 1 -maxdepth 1 ! -name "${FOLDER}" ! -name '.git' -exec rm -rf {} +
+                '''
+            }
         }
     }
 }
