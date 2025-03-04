@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "Starting Build process"
-mkdir build -p
+mkdir -p ./build   # ✅ Ensure explicit relative path
