@@ -21,8 +21,12 @@ pipeline {
     }
     post {
         success {
-            cleanWs(patterns: [[pattern: '${FOLDER}/**', type: 'EXCLUDE']])
             archiveArtifacts '${FOLDER}/**'
+            cleanWs(patterns: [
+                    [pattern: '${FOLDER}/**', type: 'EXCLUDE'],
+                    [pattern: '.git', type: 'INCLUDE']
+                ]
+            )
         }
     }
 }
