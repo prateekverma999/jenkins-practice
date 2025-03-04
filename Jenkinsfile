@@ -10,6 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 cleanWs()
+                checkout scm
                 echo "Build process started..."
                 sh '''
                     mkdir -p ${FOLDER}
