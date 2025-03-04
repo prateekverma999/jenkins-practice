@@ -15,8 +15,10 @@ pipeline {
                     sh './build.sh'
                     sh 'mkdir -p ./build_dir'
                 }
-                echo "====== New laptop config ======" >> $FOLDER/$FILE
-                echo "motherbord" >> $FOLDER/$FILE
+                sh '''
+                    echo "====== New laptop config ======" >> $FOLDER/$FILE
+                    echo "motherbord" >> $FOLDER/$FILE
+                '''
             }
         }
     }
