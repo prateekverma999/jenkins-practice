@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         FILE = 'config.txt'
-        FOLDER = 'build_dir'
+        FOLDER = 'build'
     }
 
     stages {
