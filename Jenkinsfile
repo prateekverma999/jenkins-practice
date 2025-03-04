@@ -8,23 +8,21 @@ pipeline {
 
     stages {
         stage('Build') {
-            agent {
-                node {
-                    reuseNode True
-                }
-            }
             steps {
                 cleanWs()
                 echo "Build process started..."
+
                 script {
-                    sh 'chmod +x build.sh'
+                    // Ensure build.sh exists before setting permissions
+                    sh '[ -f build.sh ] && chmod +x build.sh || echo "build.sh not found!"'
                 }
+
                 sh '''
-                    sh './build.sh'
-                    sh 'mkdir -p ./build_dir'
+                    ./build.sh
+                    mkdir -p ${FOLDER}
+                    echo "====== New laptop config ======" >> ${FOLDER}/${FILE}
+                    echo "motherboard" >> ${FOLDER}/${FILE}
                 '''
-                echo "====== New laptop config ======" >> "${FOLDER}/${FILE}"
-                echo "motherbord" >> "${FOLDER}/${FILE}"
             }
         }
     }
