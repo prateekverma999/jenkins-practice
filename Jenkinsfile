@@ -12,7 +12,11 @@ pipeline {
                 cleanWs()
                 checkout scm
                 echo "Build process started..."
+                script {
+                    sh 'chmod +x build.sh'
+                }
                 sh '''
+                    ./build.sh
                     mkdir -p ${FOLDER}
                     echo "====== New laptop config ======" >> ${FOLDER}/${FILE}
                     echo "motherboard" >> ${FOLDER}/${FILE}
