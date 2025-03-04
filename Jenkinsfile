@@ -8,6 +8,10 @@ pipeline {
 
     stages {
         stage('Build') {
+            agent {
+                any
+                reuseNode True
+            }
             steps {
                 cleanWs()
                 echo "Build process started..."
