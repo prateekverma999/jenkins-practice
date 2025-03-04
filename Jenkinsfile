@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Build process started..."
-                scripts {
+                script {
                     sh './build.sh'
                     echo "====== New laptop config ======" >> build/$FILE
                     echo "motherbord" >> build/$FILE
