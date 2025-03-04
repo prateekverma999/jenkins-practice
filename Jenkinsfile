@@ -10,6 +10,7 @@ pipeline {
             steps {
                 echo "Build process started..."
                 script {
+                    sh 'chmod +x build.sh'
                     sh 'sudo ./build.sh'
                     echo "====== New laptop config ======" >> build/$FILE
                     echo "motherbord" >> build/$FILE
