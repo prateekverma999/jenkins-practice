@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        FILE = config.txt
+        FILE = 'config.txt'
     }
 
     stages {
@@ -10,7 +10,7 @@ pipeline {
             steps {
                 echo "Build process started..."
                 scripts {
-                    sh ./build.sh
+                    sh './build.sh'
                 }
             }
         }
